@@ -1,0 +1,19 @@
+FROM node:16-alpine
+
+# Server path
+WORKDIR /usr/src/app/
+
+# Copy package.json that holds our configuration
+COPY ./package.json ./
+
+# Install dependencies
+RUN yarn
+
+# Copy everything over
+COPY . .
+
+# Run
+CMD yarn dev
+
+# Expose port
+EXPOSE 3000
